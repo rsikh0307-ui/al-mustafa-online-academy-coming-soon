@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al Mustafa Online Academy | Coming Soon</title>
+        <link rel="stylesheet" href="style.css">
+</head>
+<script>
+    // 90 days countdown (in milliseconds)
+    const ninetyDays = 90 * 24 * 60 * 60 * 1000;
+    const startTime = new Date().getTime();
+    const endTime = startTime + ninetyDays;
+
+    const timer = setInterval(function () {
+        const now = new Date().getTime();
+        const distance = endTime - now;
+
+        if (distance <= 0) {
+            document.getElementById("countdown").innerHTML = "We Are Live Now!";
+            clearInterval(timer);
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("countdown").innerHTML =
+            `Launching In: ${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds`;
+    }, 1000);
+</script>
+<body>
+
+<div class="wrapper">
+
+    <h1>Al Mustafa Online Academy</h1>
+    <h2>Coming Soon</h2>
+<p id="countdown" class="blink-line"></p>
+    <p class="intro">
+        Al Mustafa Online Academy is an upcoming online learning platform
+        dedicated to providing quality Islamic and modern education.
+        Our mission is to make learning accessible, simple, and effective
+        for students of all levels from the comfort of their homes.
+    </p>
+
+    <p class="intro">
+        We are currently working on our website and online systems.
+        Very soon, we will launch structured online classes, expert guidance,
+        and a student-friendly learning environment.
+    </p>
+
+    <form class="email-form">
+        <input type="email" placeholder="Enter your email to get updates" required>
+        <button type="submit">Notify Me</button>
+    </form>
+
+    <p class="footer-text">
+        © 2026 Al Mustafa Online Academy
+    </p>
+
+</div>
+
+</body>
+</html>
