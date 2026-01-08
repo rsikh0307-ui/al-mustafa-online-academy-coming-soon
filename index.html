@@ -4,88 +4,140 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Al Mustafa Online Academy | Coming Soon</title>
-        <link rel="stylesheet" href="style.css">
-</head>
-<script>
-    // 90 days countdown (in milliseconds)
-    const ninetyDays = 90 * 24 * 60 * 60 * 1000;
-    const startTime = new Date().getTime();
-    const endTime = startTime + ninetyDays;
 
-    const timer = setInterval(function () {
-        const now = new Date().getTime();
-        const distance = endTime - now;
-
-        if (distance <= 0) {
-            document.getElementById("countdown").innerHTML = "We Are Live Now!";
-            clearInterval(timer);
-            return;
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            margin: 0;
+            padding: 0;
         }
+        .wrapper{
+            max-width: 600px;
+            margin: 50px auto;
+            background: #ffffff;
+            padding: 40px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h1{
+            color: #1a7f37;
+        }
+        h2{
+            color: #555;
+        }
+        .intro{
+            color: #333;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        .email-form input{
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+        .email-form button{
+            width: 100%;
+            padding: 12px;
+            background: #1a7f37;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .email-form button:hover{
+            background: #145c29;
+        }
+        .footer-text{
+            margin-top: 30px;
+            font-size: 13px;
+            color: #777;
+        }
+        .blink-line{
+            font-weight: bold;
+            color: #b30000;
+        }
+    </style>
 
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    <script>
+        const ninetyDays = 90 * 24 * 60 * 60 * 1000;
+        const startTime = new Date().getTime();
+        const endTime = startTime + ninetyDays;
 
-        document.getElementById("countdown").innerHTML =
-            `Launching In: ${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds`;
-    }, 1000);
-</script>
+        const timer = setInterval(function () {
+            const now = new Date().getTime();
+            const distance = endTime - now;
+
+            if (distance <= 0) {
+                document.getElementById("countdown").innerHTML = "We Are Live Now!";
+                clearInterval(timer);
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML =
+                `Launching In: ${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds`;
+        }, 1000);
+    </script>
+</head>
+
 <body>
 
 <div class="wrapper">
 
     <h1>Al Mustafa Online Academy</h1>
     <h2>Coming Soon</h2>
-<p id="countdown" class="blink-line"></p>
+
+    <p id="countdown" class="blink-line"></p>
+
     <p class="intro">
         Al Mustafa Online Academy is an upcoming online learning platform
         dedicated to providing quality Islamic and modern education.
-        Our mission is to make learning accessible, simple, and effective
-        for students of all levels from the comfort of their homes.
     </p>
 
     <p class="intro">
-        We are currently working on our website and online systems.
-        Very soon, we will launch structured online classes, expert guidance,
-        and a student-friendly learning environment.
+        Join our mailing list to get updates about our official launch.
     </p>
-<form 
-  class="email-form"
-  action="https://formsubmit.co/almustafaonlineacademyofficail@gmail.com"
-  method="POST"
->
-    <!-- User Email -->
-    <input 
-      type="email" 
-      name="email"
-      placeholder="Enter your email to get updates" 
-      required
+
+    <!-- ✅ FINAL WORKING FORM -->
+    <form 
+        class="email-form"
+        action="https://formsubmit.co/almustafaonlineacademyofficail@gmail.com"
+        method="POST"
     >
 
-    <!-- Email Subject (Aapke Gmail ke liye) -->
-    <input 
-      type="hidden" 
-      name="_subject" 
-      value="New Email Signup - Al Mustafa Online Academy"
-    >
+        <input type="text" name="name" placeholder="Your Name" required>
 
-    <!-- Auto Reply (User ke Gmail par jayegi) -->
-    <input 
-      type="hidden" 
-      name="_autoresponse" 
-      value="Thank you for joining Al Mustafa Online Academy. We have received your email successfully. You will be notified as soon as we launch our student portal and online classes."
-    >
+        <input type="email" name="email" placeholder="Your Email" required>
 
-    <!-- Disable Captcha -->
-    <input 
-      type="hidden" 
-      name="_captcha" 
-      value="false"
-    >
+        <!-- Reply Enable -->
+        <input type="hidden" name="_replyto" value="%email%">
 
-    <button type="submit">Notify Me</button>
-</form>
+        <!-- Subject -->
+        <input type="hidden" name="_subject" value="New Signup - Al Mustafa Online Academy">
+
+        <!-- Auto Reply -->
+        <input type="hidden" name="_autoresponse" 
+        value="Thank you for joining Al Mustafa Online Academy. We have received your email successfully. You will be informed soon.">
+
+        <!-- Redirect to Thank You Page -->
+        <input type="hidden" name="_next" value="thank-you.html">
+
+        <!-- Disable Captcha -->
+        <input type="hidden" name="_captcha" value="false">
+
+        <button type="submit">Notify Me</button>
+    </form>
+
     <p class="footer-text">
         © 2026 Al Mustafa Online Academy
     </p>
